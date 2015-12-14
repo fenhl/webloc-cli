@@ -2,9 +2,10 @@
 
 # Installation
 
-1.  `gem install webloc`
-2.  Clone the repository
-3.  Make a symlink called `webloc` in your `PATH` which points at `webloc.rb`
+1.  `gem install docopt`
+2.  `gem install webloc`
+3.  Clone the repository
+4.  Make a symlink called `webloc` in your `PATH` which points at `webloc.rb`
 
 # Usage
 
