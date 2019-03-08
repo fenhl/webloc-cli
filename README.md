@@ -1,4 +1,4 @@
-`webloc` is a command-line utility for creating and reading .webloc files. .webloc is the file format OS X uses to store URLs. The script is a simple wrapper around [the webloc gem](https://github.com/peterc/webloc).
+`webloc` is a command-line utility for creating and reading .webloc files. .webloc is the file format macOS uses to store URLs. The script is a simple wrapper around [the webloc gem](https://github.com/peterc/webloc).
 
 # Installation
 
