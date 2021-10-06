@@ -2,7 +2,13 @@
 
 # Installation
 
-If you are on macOS, you can [download the tool](https://github.com/fenhl/webloc-cli/releases/latest/download/webloc) and place it somewhere in your `PATH`. For other platforms, please see the following instructions for building from source.
+## macOS
+
+1. [Download `webloc`](https://github.com/fenhl/webloc-cli/releases/latest/download/webloc)
+2. Mark `webloc` as executable (`chmod +x Downloads/webloc`) and move it to somewhere in your `PATH`.
+3. Try running `webloc -h`. You will get a permission error that `webloc` is from an unidentified developer.
+4. Open System Preferences → Security & Privacy → General and click the button to allow `webloc` to run.
+5. Now `webloc -h` will show another warning, after which it should output the help text.
 
 ## From source
 
