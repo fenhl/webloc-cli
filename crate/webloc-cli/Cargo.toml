@@ -1,0 +1,28 @@
+[package]
+name = "webloc-cli"
+version = "1.1.0"
+edition = "2018"
+
+[[bin]]
+name = "webloc"
+path = "src/main.rs"
+
+[dependencies]
+plist = "1"
+url = "2"
+
+[dependencies.derive_more]
+version = "0.99"
+default-features = false
+features = ["from"]
+
+[dependencies.structopt]
+version = "0.3"
+features = ["paw"]
+
+[dependencies.webloc]
+path = "../webloc"
+
+[dependencies.wheel]
+git = "https://github.com/fenhl/wheel"
+branch = "main"
