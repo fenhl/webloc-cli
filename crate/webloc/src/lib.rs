@@ -4,6 +4,7 @@
 #![forbid(unsafe_code)]
 
 use {
+    semver::Version,
     serde::{
         Deserialize,
         Serialize,
@@ -19,4 +20,9 @@ pub struct Webloc {
     /// The URL stored in the `.webloc` file.
     #[serde(rename = "URL")]
     pub url: Url,
+}
+
+#[doc(hidden)]
+pub fn version() -> Version {
+    Version::parse(env!("CARGO_PKG_VERSION")).expect("failed to parse current version")
 }
