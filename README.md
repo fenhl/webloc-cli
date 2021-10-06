@@ -1,3 +1,5 @@
+**This branch is unmaintained. For the current version, see [the `main` branch](https://github.com/fenhl/webloc-cli/tree/main).**
+
 `webloc` is a command-line utility for creating and reading .webloc files. .webloc is the file format macOS uses to store URLs. The script is a simple wrapper around [the webloc gem](https://github.com/peterc/webloc).
 
 # Installation
