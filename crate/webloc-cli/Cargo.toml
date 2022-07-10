@@ -3,6 +3,10 @@ name = "webloc-cli"
 version = "1.1.1"
 edition = "2021"
 
+[profile.release]
+strip = true
+lto = true
+
 [[bin]]
 name = "webloc"
 path = "src/main.rs"
@@ -26,3 +30,4 @@ path = "../webloc"
 [dependencies.wheel]
 git = "https://github.com/fenhl/wheel"
 branch = "main"
+default-features = false
