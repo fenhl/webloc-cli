@@ -13,11 +13,7 @@ itertools = "0.10"
 semver = "1"
 serde_json = "1"
 tempfile = "3"
-
-[dependencies.derive_more]
-version = "0.99"
-default-features = false
-features = ["from"]
+thiserror = "1"
 
 [dependencies.reqwest]
 version = "0.11"

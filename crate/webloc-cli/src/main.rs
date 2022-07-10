@@ -3,7 +3,6 @@
 
 use {
     std::{
-        fmt,
         io::{
             self,
             prelude::*,
@@ -12,7 +11,6 @@ use {
         },
         path::PathBuf,
     },
-    derive_more::From,
     url::Url,
     webloc::Webloc,
 };
@@ -38,21 +36,11 @@ enum Args {
     },
 }
 
-#[derive(From)]
+#[derive(Debug, thiserror::Error)]
 enum Error {
-    Io(io::Error),
-    Plist(plist::Error),
-    Url(url::ParseError),
-}
-
-impl fmt::Display for Error {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Self::Io(e) => write!(f, "I/O error: {}", e),
-            Self::Plist(e) => write!(f, "error reading/writing webloc plist file: {}", e),
-            Self::Url(e) => write!(f, "invalid URL: {}", e),
-        }
-    }
+    #[error(transparent)] Io(#[from] io::Error),
+    #[error(transparent)] Plist(#[from] plist::Error),
+    #[error(transparent)] Url(#[from] url::ParseError),
 }
 
 #[wheel::main]

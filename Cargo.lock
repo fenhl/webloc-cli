@@ -112,17 +112,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3ee2393c4a91429dffb4bedf19f4d6abf27d8a732c8ce4980305d782e5426d57"
 
 [[package]]
-name = "derive_more"
-version = "0.99.17"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4fb810d30a7c1953f91334de7244731fc3f3c10d7fe163338a35b9f640960321"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "either"
 version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1280,8 +1269,8 @@ name = "webloc-cli"
 version = "1.1.1"
 dependencies = [
  "clap",
- "derive_more",
  "plist",
+ "thiserror",
  "url",
  "webloc",
  "wheel",
@@ -1292,13 +1281,13 @@ name = "webloc-utils"
 version = "1.1.1"
 dependencies = [
  "async-trait",
- "derive_more",
  "itertools",
  "reqwest",
  "semver",
  "serde",
  "serde_json",
  "tempfile",
+ "thiserror",
  "tokio",
  "webloc",
  "wheel",

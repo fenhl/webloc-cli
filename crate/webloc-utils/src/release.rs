@@ -4,7 +4,6 @@
 use {
     std::{
         cmp::Ordering::*,
-        fmt,
         future::Future,
         io::{
             self,
@@ -17,7 +16,6 @@ use {
         time::Duration,
     },
     async_trait::async_trait,
-    derive_more::From,
     itertools::Itertools as _,
     reqwest::{
         Body,
@@ -166,25 +164,23 @@ async fn write_release_notes() -> Result<String, Error> {
     Ok(buf)
 }
 
-#[derive(Debug, From)]
+#[derive(Debug, thiserror::Error)]
 enum Error {
+    #[error(transparent)] InvalidHeaderValue(#[from] reqwest::header::InvalidHeaderValue),
+    #[error(transparent)] Io(#[from] io::Error),
+    #[error(transparent)] Reqwest(#[from] reqwest::Error),
+    #[error(transparent)] SemVer(#[from] semver::Error),
+    #[error("command `{0}` exited with {1}")]
     CommandExit(&'static str, ExitStatus),
+    #[error("aborting due to empty release notes")]
     EmptyReleaseNotes,
-    InvalidHeaderValue(reqwest::header::InvalidHeaderValue),
-    Io(io::Error),
-    Reqwest(reqwest::Error),
+    #[error("local crate has the same version as latest release")]
     SameVersion,
-    SemVer(semver::Error),
+    #[error("local crate has a lower version than latest release")]
     VersionRegression,
 }
 
-impl fmt::Display for Error {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{:?}", self)
-    }
-}
-
-#[wheel::main]
+#[wheel::main(debug)]
 async fn main() -> Result<(), Error> {
     eprintln!("creating reqwest client");
     let client = release_client().await?;
