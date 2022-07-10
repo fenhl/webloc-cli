@@ -16,6 +16,7 @@ use {
 };
 
 #[derive(clap::Parser)]
+#[clap(version)]
 enum Args {
     /// Output the URL contained in a webloc file.
     Read {
