@@ -11,14 +11,14 @@ path = "src/main.rs"
 plist = "1"
 url = "2"
 
+[dependencies.clap]
+version = "3"
+features = ["derive"]
+
 [dependencies.derive_more]
 version = "0.99"
 default-features = false
 features = ["from"]
-
-[dependencies.structopt]
-version = "0.3"
-features = ["paw"]
 
 [dependencies.webloc]
 path = "../webloc"

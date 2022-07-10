@@ -13,28 +13,27 @@ use {
         path::PathBuf,
     },
     derive_more::From,
-    structopt::StructOpt,
     url::Url,
     webloc::Webloc,
 };
 
-#[derive(StructOpt)]
+#[derive(clap::Parser)]
 enum Args {
     /// Output the URL contained in a webloc file.
     Read {
         /// Which webloc file to read. Defaults to stdin.
-        #[structopt(parse(from_os_str))]
+        #[clap(parse(from_os_str))]
         path: Option<PathBuf>,
     },
     /// Store a URL in a webloc file.
     Save {
         /// Where to save the webloc. Defaults to stdout.
-        #[structopt(parse(from_os_str))]
+        #[clap(parse(from_os_str))]
         path: Option<PathBuf>,
         /// Which URL to save. Read from stdin if omitted.
         url: Option<Url>,
         /// Write the webloc as a human-readable XML file rather than the more compact binary format.
-        #[structopt(short, long)]
+        #[clap(short, long)]
         xml: bool,
     },
 }
