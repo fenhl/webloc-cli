@@ -1377,7 +1377,7 @@ dependencies = [
 
 [[package]]
 name = "webloc"
-version = "1.1.0"
+version = "1.1.1"
 dependencies = [
  "semver",
  "serde",
@@ -1386,7 +1386,7 @@ dependencies = [
 
 [[package]]
 name = "webloc-cli"
-version = "1.1.0"
+version = "1.1.1"
 dependencies = [
  "derive_more",
  "plist",
@@ -1398,7 +1398,7 @@ dependencies = [
 
 [[package]]
 name = "webloc-utils"
-version = "1.1.0"
+version = "1.1.1"
 dependencies = [
  "async-trait",
  "derive_more",
