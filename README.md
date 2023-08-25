@@ -33,10 +33,10 @@ Inspect .webloc files with `webloc read`, or create them with `webloc save`.
 
 ## Read
 
-The syntax is `webloc read [<filename>]`, and will print the URL to stdout. If the filename parameter is omitted, the script will attempt to read a webloc file from stdin.
+The syntax is `webloc read [<path>]`, and will print the URL to stdout. If the path parameter is omitted, the script will attempt to read a webloc file from stdin.
 
 ## Save
 
-The syntax is `webloc save [<filename>] [<url>]`. If the url parameter is omitted, the script will attempt to read a URL from stdin. If the filename parameter is omitted, the script will write the webloc file to stdout.
+The syntax is `webloc save [<path>] [<url>]`. If the url parameter is omitted, the script will attempt to read a URL from stdin. If the path parameter is omitted, the script will write the webloc file to stdout.
 
-The `--xml` (or `-x`) flag can be passed to make `webloc` output a human-readable XML webloc file instead of using the more compact binary format. Both formats are equally supported by macOS (and `webloc read`).
+The `--xml` (or `-x`) flag can be passed to make `webloc save` output a human-readable XML webloc file instead of using the more compact binary format. Both formats are equally supported by macOS (and `webloc read`).
