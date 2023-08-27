@@ -13,7 +13,7 @@ thiserror = "1"
 url = "2"
 
 [dependencies.clap]
-version = "3"
+version = "4"
 features = ["derive"]
 
 [dependencies.webloc]

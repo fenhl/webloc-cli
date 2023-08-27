@@ -21,13 +21,11 @@ enum Args {
     /// Output the URL contained in a webloc file.
     Read {
         /// Which webloc file to read. Defaults to stdin.
-        #[clap(parse(from_os_str))]
         path: Option<PathBuf>,
     },
     /// Store a URL in a webloc file.
     Save {
         /// Where to save the webloc. Defaults to stdout.
-        #[clap(parse(from_os_str))]
         path: Option<PathBuf>,
         /// Which URL to save. Read from stdin if omitted.
         url: Option<Url>,
@@ -74,7 +72,7 @@ fn main(args: Args) -> Result<(), Error> {
                 }
             } else {
                 if xml {
-                    plist::to_writer_xml_with_options(stdout(), &webloc, &plist::XmlWriteOptions::default().indent_string("    "))?;
+                    plist::to_writer_xml_with_options(stdout(), &webloc, &plist::XmlWriteOptions::default().indent(b' ', 4))?;
                 } else {
                     plist::to_writer_binary(stdout(), &webloc)?;
                 }
