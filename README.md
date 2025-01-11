@@ -23,7 +23,7 @@ If you're not on macOS or would prefer to build the tool from source, follow the
 3. In the command line, run the following command. Depending on your computer, this may take a while.
 
     ```
-    cargo install --git=https://github.com/fenhl/webloc-cli --branch=main
+    cargo install --git=https://github.com/fenhl/webloc-cli --branch=main webloc-cli
     ```
 
 # Usage
