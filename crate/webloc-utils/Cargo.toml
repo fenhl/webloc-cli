@@ -1,7 +1,11 @@
 [package]
 name = "webloc-utils"
-version = "1.1.1"
-edition = "2021"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
 
 [[bin]]
 name = "webloc-release"
@@ -9,28 +13,14 @@ path = "src/release.rs"
 
 [dependencies]
 async-trait = "0.1"
-itertools = "0.11"
+itertools = "0.15"
+reqwest = { version = "0.13", default-features = false, features = ["charset", "gzip", "hickory-dns", "http2", "json", "query", "rustls-no-provider", "system-proxy", "zstd"] }
+rustls = { version = "0.23", default-features = false, features = ["ring"] }
 semver = "1"
+serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tempfile = "3"
-thiserror = "1"
-
-[dependencies.reqwest]
-version = "0.11"
-default-features = false
-features = ["json", "rustls-tls", "trust-dns"]
-
-[dependencies.serde]
-version = "1"
-features = ["derive"]
-
-[dependencies.tokio]
-version = "1"
-features = ["fs", "process"]
-
-[dependencies.webloc]
-path = "../webloc"
-
-[dependencies.wheel]
-git = "https://github.com/fenhl/wheel"
-branch = "main"
+thiserror = "2"
+tokio = { version = "1", features = ["fs", "process"] }
+webloc = { path = "../webloc" }
+wheel = { git = "https://github.com/fenhl/wheel" }

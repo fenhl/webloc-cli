@@ -1,6 +1,3 @@
-#![deny(rust_2018_idioms, unused, unused_crate_dependencies, unused_import_braces, unused_lifetimes, unused_qualifications, warnings)]
-#![forbid(unsafe_code)]
-
 use {
     std::{
         cmp::Ordering::*,
@@ -182,6 +179,7 @@ enum Error {
 
 #[wheel::main(debug)]
 async fn main() -> Result<(), Error> {
+    let _ = rustls::crypto::ring::default_provider().install_default();
     eprintln!("creating reqwest client");
     let client = release_client().await?;
     //TODO make sure working dir is clean and on default branch and up to date with remote and remote is up to date

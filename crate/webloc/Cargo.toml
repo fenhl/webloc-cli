@@ -1,15 +1,21 @@
 [package]
 name = "webloc"
-version = "1.1.1"
-edition = "2021"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[lints.rust]
+missing_docs = "deny"
+rust_2018_idioms = "deny"
+unsafe_code = "forbid"
+unused = "deny"
+unused_crate_dependencies = "deny"
+unused_import_braces = "deny"
+unused_lifetimes = "deny"
+unused_qualifications = "deny"
+warnings = "deny"
 
 [dependencies]
 semver = "1"
-
-[dependencies.serde]
-version = "1"
-features = ["derive"]
-
-[dependencies.url]
-version = "2"
-features = ["serde"]
+serde = { version = "1", features = ["derive"] }
+url = { version = "2", features = ["serde"] }

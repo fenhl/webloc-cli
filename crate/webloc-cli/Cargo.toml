@@ -1,25 +1,21 @@
 [package]
 name = "webloc-cli"
-version = "1.1.1"
-edition = "2021"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true
 
 [[bin]]
 name = "webloc"
 path = "src/main.rs"
 
 [dependencies]
+clap = { version = "4", features = ["derive"] }
+mimalloc = "0.1"
 plist = "1"
-thiserror = "1"
+thiserror = "2"
 url = "2"
-
-[dependencies.clap]
-version = "4"
-features = ["derive"]
-
-[dependencies.webloc]
-path = "../webloc"
-
-[dependencies.wheel]
-git = "https://github.com/fenhl/wheel"
-branch = "main"
-default-features = false
+webloc = { path = "../webloc" }
+wheel = { git = "https://github.com/fenhl/wheel", default-features = false }

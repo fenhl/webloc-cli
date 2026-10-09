@@ -1,8 +1,5 @@
 //! This library provides the [`Webloc`] type which provides utilities for working with the `.webloc` file format macOS uses to store URLs.
 
-#![deny(missing_docs, rust_2018_idioms, unused, unused_crate_dependencies, unused_import_braces, unused_lifetimes, unused_qualifications, warnings)]
-#![forbid(unsafe_code)]
-
 use {
     semver::Version,
     serde::{

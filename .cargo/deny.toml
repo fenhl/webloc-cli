@@ -1,0 +1,13 @@
+[graph]
+targets = [
+    "aarch64-apple-darwin",
+]
+
+[advisories]
+unmaintained = "none"
+
+[bans]
+multiple-versions = "allow" #TODO
+deny = [
+    { crate = "aws-lc-rs", reason = "often fails to compile", use-instead = "ring" },
+]
